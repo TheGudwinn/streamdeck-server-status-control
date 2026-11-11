@@ -181,7 +181,27 @@ ${[g.overview, g.httpOk, g.dockerOk, g.cpu, g.alert, g.unitOk]
   })
   .join("")}
 </svg>`;
-save("thumbnail.png", thumb);
+// Если есть сгенерированный баннер (16:9), вписываем его по высоте в 1920x960, а боковые поля
+// продолжаем его же размытой копией: кепка и лапы не обрезаются.
+const bannerFile = "docs/assets/banner.png";
+if (fs.existsSync(bannerFile)) {
+  const b64 = fs.readFileSync(bannerFile).toString("base64");
+  const bw = Math.round((960 * 2000) / 1116);
+  const bx = Math.round((1920 - bw) / 2);
+  const thumbBanner = `<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="960" viewBox="0 0 1920 960">
+<defs>
+<radialGradient id="sideGlow" gradientUnits="userSpaceOnUse" cx="${bx + 120}" cy="500" r="520"><stop offset="0" stop-color="#3f8a7c" stop-opacity="0.2"/><stop offset="1" stop-color="#3f8a7c" stop-opacity="0"/></radialGradient>
+<linearGradient id="fadeX" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000"/><stop offset="0.035" stop-color="#fff"/><stop offset="0.965" stop-color="#fff"/><stop offset="1" stop-color="#000"/></linearGradient>
+<mask id="m" maskUnits="userSpaceOnUse" x="${bx}" y="0" width="${bw}" height="960"><rect x="${bx}" y="0" width="${bw}" height="960" fill="url(#fadeX)"/></mask>
+</defs>
+<rect width="1920" height="960" fill="#1f2025"/>
+<rect width="1920" height="960" fill="url(#sideGlow)"/>
+<image x="${bx}" y="0" width="${bw}" height="960" mask="url(#m)" href="data:image/png;base64,${b64}"/>
+</svg>`;
+  save("thumbnail.png", thumbBanner);
+} else {
+  save("thumbnail.png", thumb);
+}
 
 // --- иконка приложения 288x288
 fs.writeFileSync(path.join(out, "app-icon-288.png"), png(iconSvg, 288));
