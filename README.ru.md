@@ -176,7 +176,7 @@ npm run watch                    # пересборка и перезагруз�
 npm test                         # юнит-тесты
 node scripts/gen-icons.mjs       # перегенерировать иконки
 node scripts/gen-listing.mjs     # перегенерировать картинки для Marketplace
-node scripts/gen-banner.mjs      # перегенерировать этот баннер
+node scripts/gen-banner.mjs      # перегенерировать запасной баннер (собирается кодом)
 ```
 
 План развития и идеи: [docs/TOOLKIT.md](docs/TOOLKIT.md). Сообщения об ошибках и pull request'ы приветствуются.

@@ -1,4 +1,5 @@
-// Баннер для README: docs/assets/banner.png (1800x680).
+// Запасной баннер (собирается кодом): docs/assets/banner-composed.png (1800x680).
+// Основной баннер README (docs/assets/banner.png) — картинка, сгенерированная в Nano Banana 2.
 // Слева сгенерированный кадр с маскотом (docs/assets/banner-frame.png), справа плавно переходящий в фон
 // заголовок, подзаголовок, плашки и живые карточки плагина.
 // Если кадра нет, используется запасной вариант: портрет маскота (docs/assets/mascot.png).
@@ -97,5 +98,5 @@ ${tiles.map((uri, i) => `<rect x="${tx + i * (tile + gap) - 3}" y="${ty - 3}" wi
 </svg>`;
 
 const png = new Resvg(svg, { fitTo: { mode: "width", value: W }, font: { loadSystemFonts: true, defaultFontFamily: "Segoe UI" } }).render().asPng();
-fs.writeFileSync("docs/assets/banner.png", png);
-console.log("готово: docs/assets/banner.png", `${W}x${H}`, hasFrame ? "(с кадром)" : "(запасной)");
+fs.writeFileSync("docs/assets/banner-composed.png", png);
+console.log("готово: docs/assets/banner-composed.png", `${W}x${H}`, hasFrame ? "(с кадром)" : "(запасной)");

@@ -176,7 +176,7 @@ npm run watch                    # rebuild and reload on change (needs `streamde
 npm test                         # unit tests
 node scripts/gen-icons.mjs       # regenerate icons
 node scripts/gen-listing.mjs     # regenerate Marketplace images
-node scripts/gen-banner.mjs      # regenerate this banner
+node scripts/gen-banner.mjs      # regenerate the alternative (code-composed) banner
 ```
 
 Roadmap and ideas: [docs/TOOLKIT.md](docs/TOOLKIT.md). Bug reports and pull requests are welcome.
