@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Run Command</title>
+  <script src="https://sdpi-components.dev/releases/v4/sdpi-components.js"></script>
+</head>
+<body>
+  <sdpi-item label="Server">
+    <sdpi-select setting="host" datasource="getHosts" loading="Loading…" placeholder="from ~/.ssh/config"></sdpi-select>
+  </sdpi-item>
+  <sdpi-item label="Custom address">
+    <sdpi-textfield setting="hostManual" placeholder="user@host (if not in ssh config)"></sdpi-textfield>
+  </sdpi-item>
+  <sdpi-item label="SSH key">
+    <sdpi-textfield setting="keyPath" placeholder="~/.ssh/key (if not in ssh config)"></sdpi-textfield>
+  </sdpi-item>
+  <sdpi-item label="Preset">
+    <sdpi-select setting="preset" default="custom">
+      <option value="custom">Custom command</option>
+      <option value="uptime">Uptime</option>
+      <option value="disk">Disk usage</option>
+      <option value="topproc">Top process</option>
+      <option value="errors">Errors, 10 min</option>
+      <option value="nginxtest">nginx test</option>
+      <option value="nginxreload">nginx reload</option>
+      <option value="dockerup">Docker running</option>
+      <option value="freecache">Free cache</option>
+    </sdpi-select>
+  </sdpi-item>
+  <sdpi-item label="Command">
+    <sdpi-textarea setting="command" rows="3" maxlength="2000" placeholder="one-line shell command"></sdpi-textarea>
+  </sdpi-item>
+  <sdpi-item label="Root">
+    <sdpi-checkbox setting="asRoot" label="Run as root (sudo)"></sdpi-checkbox>
+  </sdpi-item>
+  <sdpi-item label="Confirmation">
+    <sdpi-select setting="confirm" default="hold">
+      <option value="hold">Hold 1 second</option>
+      <option value="twice">Press twice</option>
+      <option value="none">Press (no confirmation)</option>
+    </sdpi-select>
+  </sdpi-item>
+  <sdpi-item label="Timeout, s">
+    <sdpi-textfield setting="timeoutSec" placeholder="30"></sdpi-textfield>
+  </sdpi-item>
+  <sdpi-item label="Dangerous commands">
+    <sdpi-checkbox setting="allowDangerous" label="Allow (rm -rf /, mkfs, dd, reboot…)"></sdpi-checkbox>
+  </sdpi-item>
+  <sdpi-item label="Label">
+    <sdpi-textfield setting="label" placeholder="default: preset or command"></sdpi-textfield>
+  </sdpi-item>
+  <sdpi-item label="Help">
+    <a data-t href="https://github.com/TheGudwinn/streamdeck-server-status-control#set-up-a-server" target="_blank">Setup guide</a>
+  </sdpi-item>
+  <sdpi-item label="Style">
+    <sdpi-select setting="theme" global default="glass">
+      <option value="glass">Glass</option>
+      <option value="mono">Mono</option>
+    </sdpi-select>
+  </sdpi-item>
+  <sdpi-item label="Language">
+    <sdpi-select setting="language" global default="en">
+      <option value="en">English</option>
+      <option value="ru">Русский</option>
+    </sdpi-select>
+  </sdpi-item>
+  <script src="pi-i18n.js"></script>
+</body>
+</html>

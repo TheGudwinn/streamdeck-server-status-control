@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Power</title>
+  <script src="https://sdpi-components.dev/releases/v4/sdpi-components.js"></script>
+</head>
+<body>
+  <sdpi-item label="Server">
+    <sdpi-select setting="host" datasource="getHosts" loading="Loading…" placeholder="from ~/.ssh/config"></sdpi-select>
+  </sdpi-item>
+  <sdpi-item label="Custom address">
+    <sdpi-textfield setting="hostManual" placeholder="user@host (if not in ssh config)"></sdpi-textfield>
+  </sdpi-item>
+  <sdpi-item label="SSH key">
+    <sdpi-textfield setting="keyPath" placeholder="~/.ssh/key (if not in ssh config)"></sdpi-textfield>
+  </sdpi-item>
+  <sdpi-item label="Operation">
+    <sdpi-select setting="op" default="reboot">
+      <option value="reboot">Reboot</option>
+      <option value="shutdown">Shutdown</option>
+    </sdpi-select>
+  </sdpi-item>
+  <sdpi-item label="Label">
+    <sdpi-textfield setting="label" placeholder="default: host name"></sdpi-textfield>
+  </sdpi-item>
+  <sdpi-item label="Help">
+    <a data-t href="https://github.com/TheGudwinn/streamdeck-server-status-control#set-up-a-server" target="_blank">Setup guide</a>
+  </sdpi-item>
+  <sdpi-item label="Style">
+    <sdpi-select setting="theme" global default="glass">
+      <option value="glass">Glass</option>
+      <option value="mono">Mono</option>
+    </sdpi-select>
+  </sdpi-item>
+  <sdpi-item label="Language">
+    <sdpi-select setting="language" global default="en">
+      <option value="en">English</option>
+      <option value="ru">Русский</option>
+    </sdpi-select>
+  </sdpi-item>
+  <script src="pi-i18n.js"></script>
+</body>
+</html>

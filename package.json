@@ -1,0 +1,48 @@
+{
+  "name": "streamdeck-server-status-control",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c -w --watch.onEnd=\"streamdeck restart com.guddion.server-status\"",
+    "test": "node --test tests/core.test.ts"
+  },
+  "dependencies": {
+    "@elgato/streamdeck": "^3.0.4"
+  },
+  "devDependencies": {
+    "@elgato/cli": "^1.10.4",
+    "@resvg/resvg-js": "^2.6.2",
+    "@rollup/plugin-commonjs": "^29.0.3",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "@rollup/plugin-terser": "^1.0.2",
+    "@rollup/plugin-typescript": "^12.3.1",
+    "@types/node": "~24.0.0",
+    "rollup": "^4.68.2",
+    "tslib": "^2.9.1",
+    "typescript": "~5.9.0"
+  },
+  "description": "Stream Deck plugin to monitor and control Linux servers over SSH: CPU, RAM, disk, HTTP/TCP/TLS checks, systemd, Docker, alerts.",
+  "license": "MIT",
+  "author": "Guddion",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheGudwinn/streamdeck-server-status-control.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TheGudwinn/streamdeck-server-status-control/issues"
+  },
+  "homepage": "https://github.com/TheGudwinn/streamdeck-server-status-control#readme",
+  "keywords": [
+    "streamdeck",
+    "stream-deck",
+    "elgato",
+    "server-monitoring",
+    "ssh",
+    "docker",
+    "systemd",
+    "devops",
+    "vps"
+  ]
+}

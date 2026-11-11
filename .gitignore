@@ -1,0 +1,6 @@
+node_modules/
+dist/
+.preview/
+*.streamDeckPlugin
+com.guddion.server-status.sdPlugin/logs/
+com.guddion.server-status.sdPlugin/bin/*.map

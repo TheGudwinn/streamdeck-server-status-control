@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>HTTP Check</title>
+  <script src="https://sdpi-components.dev/releases/v4/sdpi-components.js"></script>
+</head>
+<body>
+  <sdpi-item label="URL">
+    <sdpi-textfield setting="url" required placeholder="https://example.com/health"></sdpi-textfield>
+  </sdpi-item>
+  <sdpi-item label="Label">
+    <sdpi-textfield setting="label" placeholder="default: domain"></sdpi-textfield>
+  </sdpi-item>
+  <sdpi-item label="Keyword">
+    <sdpi-textfield setting="keyword" placeholder="optional: text that must be on the page"></sdpi-textfield>
+  </sdpi-item>
+  <sdpi-item label="Interval, s">
+    <sdpi-textfield setting="intervalSec" placeholder="30"></sdpi-textfield>
+  </sdpi-item>
+  <sdpi-item label="Timeout, ms">
+    <sdpi-textfield setting="timeoutMs" placeholder="5000"></sdpi-textfield>
+  </sdpi-item>
+  <sdpi-item label="Style">
+    <sdpi-select setting="theme" global default="glass">
+      <option value="glass">Glass</option>
+      <option value="mono">Mono</option>
+    </sdpi-select>
+  </sdpi-item>
+  <sdpi-item label="Language">
+    <sdpi-select setting="language" global default="en">
+      <option value="en">English</option>
+      <option value="ru">Русский</option>
+    </sdpi-select>
+  </sdpi-item>
+  <script src="pi-i18n.js"></script>
+</body>
+</html>

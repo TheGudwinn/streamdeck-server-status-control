@@ -1,0 +1,253 @@
+{
+  "$schema": "https://schemas.elgato.com/streamdeck/plugins/manifest.json",
+  "UUID": "com.guddion.server-status",
+  "Name": "Server Status & Control",
+  "Category": "Server Status & Control",
+  "CategoryIcon": "imgs/category-icon",
+  "Version": "1.0.0.0",
+  "Author": "Guddion",
+  "Description": "Server monitoring and control: CPU/RAM/disk over SSH, HTTP/TCP/TLS checks, systemd services, Docker, alerts.",
+  "Icon": "imgs/plugin-icon",
+  "CodePath": "bin/plugin.js",
+  "Nodejs": {
+    "Version": "24"
+  },
+  "SDKVersion": 3,
+  "Software": {
+    "MinimumVersion": "7.1"
+  },
+  "OS": [
+    {
+      "Platform": "windows",
+      "MinimumVersion": "10"
+    }
+  ],
+  "Actions": [
+    {
+      "UUID": "com.guddion.server-status.resources",
+      "Name": "Host Overview",
+      "Tooltip": "CPU and RAM of a server over SSH on one key.",
+      "Icon": "imgs/actions/host-overview/icon",
+      "Controllers": [
+        "Keypad"
+      ],
+      "PropertyInspectorPath": "ui/resources.html",
+      "States": [
+        {
+          "Image": "imgs/actions/host-overview/key",
+          "ShowTitle": false
+        }
+      ]
+    },
+    {
+      "UUID": "com.guddion.server-status.metric",
+      "Name": "Metric",
+      "Tooltip": "A single server metric: CPU, RAM, swap, load, disk, network, uptime.",
+      "Icon": "imgs/actions/metric/icon",
+      "Controllers": [
+        "Keypad"
+      ],
+      "PropertyInspectorPath": "ui/metric.html",
+      "States": [
+        {
+          "Image": "imgs/actions/metric/key",
+          "ShowTitle": false
+        }
+      ]
+    },
+    {
+      "UUID": "com.guddion.server-status.latency",
+      "Name": "Latency",
+      "Tooltip": "Latency to the server (TCP) with history.",
+      "Icon": "imgs/actions/latency/icon",
+      "Controllers": [
+        "Keypad"
+      ],
+      "PropertyInspectorPath": "ui/latency.html",
+      "States": [
+        {
+          "Image": "imgs/actions/latency/key",
+          "ShowTitle": false
+        }
+      ]
+    },
+    {
+      "UUID": "com.guddion.server-status.check",
+      "Name": "HTTP Check",
+      "Tooltip": "Checks a website: status code, response time, keyword on the page. Press to check now.",
+      "Icon": "imgs/actions/http-check/icon",
+      "Controllers": [
+        "Keypad"
+      ],
+      "PropertyInspectorPath": "ui/status.html",
+      "States": [
+        {
+          "Image": "imgs/actions/http-check/key",
+          "ShowTitle": false
+        }
+      ]
+    },
+    {
+      "UUID": "com.guddion.server-status.tcp",
+      "Name": "TCP Port",
+      "Tooltip": "Checks that a port on a host is open.",
+      "Icon": "imgs/actions/tcp-port/icon",
+      "Controllers": [
+        "Keypad"
+      ],
+      "PropertyInspectorPath": "ui/tcp.html",
+      "States": [
+        {
+          "Image": "imgs/actions/tcp-port/key",
+          "ShowTitle": false
+        }
+      ]
+    },
+    {
+      "UUID": "com.guddion.server-status.tls",
+      "Name": "TLS Expiry",
+      "Tooltip": "Days left until the TLS certificate expires.",
+      "Icon": "imgs/actions/tls-expiry/icon",
+      "Controllers": [
+        "Keypad"
+      ],
+      "PropertyInspectorPath": "ui/tls.html",
+      "States": [
+        {
+          "Image": "imgs/actions/tls-expiry/key",
+          "ShowTitle": false
+        }
+      ]
+    },
+    {
+      "UUID": "com.guddion.server-status.unit",
+      "Name": "systemd Unit",
+      "Tooltip": "State of a systemd service. Hold to restart (if allowed).",
+      "Icon": "imgs/actions/systemd-unit/icon",
+      "Controllers": [
+        "Keypad"
+      ],
+      "PropertyInspectorPath": "ui/unit.html",
+      "States": [
+        {
+          "Image": "imgs/actions/systemd-unit/key",
+          "ShowTitle": false
+        }
+      ]
+    },
+    {
+      "UUID": "com.guddion.server-status.docker",
+      "Name": "Docker Container",
+      "Tooltip": "State of a Docker container on the server. Hold to restart (if allowed).",
+      "Icon": "imgs/actions/docker-container/icon",
+      "Controllers": [
+        "Keypad"
+      ],
+      "PropertyInspectorPath": "ui/docker.html",
+      "States": [
+        {
+          "Image": "imgs/actions/docker-container/key",
+          "ShowTitle": false
+        }
+      ]
+    },
+    {
+      "UUID": "com.guddion.server-status.alerts",
+      "Name": "Alert Hub",
+      "Tooltip": "Shared alert key. Blinks while there are unacknowledged alerts. Press to show the next one.",
+      "Icon": "imgs/actions/alert-hub/icon",
+      "Controllers": [
+        "Keypad"
+      ],
+      "States": [
+        {
+          "Image": "imgs/actions/alert-hub/key",
+          "ShowTitle": false
+        }
+      ]
+    },
+    {
+      "UUID": "com.guddion.server-status.ack",
+      "Name": "Acknowledge",
+      "Tooltip": "Acknowledge all active alerts.",
+      "Icon": "imgs/actions/acknowledge/icon",
+      "Controllers": [
+        "Keypad"
+      ],
+      "States": [
+        {
+          "Image": "imgs/actions/acknowledge/key",
+          "ShowTitle": false
+        }
+      ]
+    },
+    {
+      "UUID": "com.guddion.server-status.command",
+      "Name": "Run Command",
+      "Tooltip": "Runs a command or preset on the server and shows the result. Works in multi actions.",
+      "Icon": "imgs/actions/run-command/icon",
+      "Controllers": [
+        "Keypad"
+      ],
+      "PropertyInspectorPath": "ui/command.html",
+      "SupportedInMultiActions": true,
+      "States": [
+        {
+          "Image": "imgs/actions/run-command/key",
+          "ShowTitle": false
+        }
+      ]
+    },
+    {
+      "UUID": "com.guddion.server-status.power",
+      "Name": "Power",
+      "Tooltip": "Reboot or shut down the server. Protected: hold, then press again. Works in multi actions.",
+      "Icon": "imgs/actions/power/icon",
+      "Controllers": [
+        "Keypad"
+      ],
+      "PropertyInspectorPath": "ui/power.html",
+      "SupportedInMultiActions": true,
+      "States": [
+        {
+          "Image": "imgs/actions/power/key",
+          "ShowTitle": false
+        }
+      ]
+    },
+    {
+      "UUID": "com.guddion.server-status.service",
+      "Name": "Service Control",
+      "Tooltip": "Restart, start, stop or reload a systemd service. Works in multi actions.",
+      "Icon": "imgs/actions/service-control/icon",
+      "Controllers": [
+        "Keypad"
+      ],
+      "PropertyInspectorPath": "ui/service.html",
+      "SupportedInMultiActions": true,
+      "States": [
+        {
+          "Image": "imgs/actions/service-control/key",
+          "ShowTitle": false
+        }
+      ]
+    },
+    {
+      "UUID": "com.guddion.server-status.dockerctl",
+      "Name": "Docker Control",
+      "Tooltip": "Restart, start or stop a Docker container. Works in multi actions.",
+      "Icon": "imgs/actions/docker-control/icon",
+      "Controllers": [
+        "Keypad"
+      ],
+      "PropertyInspectorPath": "ui/dockerctl.html",
+      "SupportedInMultiActions": true,
+      "States": [
+        {
+          "Image": "imgs/actions/docker-control/key",
+          "ShowTitle": false
+        }
+      ]
+    }
+  ]
+}
